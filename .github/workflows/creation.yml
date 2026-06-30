@@ -1,17 +1,20 @@
-name: CI Pipeline
+name: Simple CI
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  check:
+  hello:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Repository Checked
-        run: echo "Repository checked successfully!"
+      - name: Print Message
+        run: echo "Hello! GitHub Actions is working."
+
+      - name: Show Files
+        run: ls -la
